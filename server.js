@@ -1,18 +1,18 @@
 import { ApolloServer, gql } from "apollo-server";
 import crypto from "crypto";
 
-console.log(crypto.randomUUID());
+//console.log(crypto.randomUUID());
 
 const users = [
   {
-    id: 1,
+    id: "referfs",
     firstname: "Godfrey",
     lastName: "Lebo",
     email: "emorilebo@gmail.com",
     password: "12345",
   },
   {
-    id: 2,
+    id: "fwef232",
     firstname: "Danny",
     lastName: "Crane",
     email: "dannycrane@gmail.com",
@@ -54,9 +54,11 @@ const resolvers = {
       return users.find((item) => item.id == id);
     },
   },
-  //   Mutation: {
-  //     createUser: (_, { userNew }),
-  //   },
+    Mutation: {
+      createUser: (_, { userNew })=>{
+
+      }
+    },
 };
 
 // The ApolloServer constructor requires two parameters: your schema
