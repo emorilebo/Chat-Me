@@ -56,7 +56,12 @@ const resolvers = {
   },
     Mutation: {
       createUser: (_, { userNew })=>{
-
+        const newUser = {
+            id:crypto.randomUUID(),
+            ...userNew
+        }
+        users.push(newUser)
+        return newUser;
       }
     },
 };
