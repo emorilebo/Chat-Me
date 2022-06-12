@@ -20,6 +20,21 @@ const users = [
   },
 ];
 
+const Todos = [
+  {
+    title: "buy book",
+    by: "referfs",
+  },
+  {
+    title: "write code",
+    by: "referfs",
+  },
+  {
+    title: "record video",
+    by: "fwef232",
+  },
+];
+
 const typeDefs = gql`
   type Query {
     # greet:String
@@ -37,11 +52,18 @@ const typeDefs = gql`
   type Mutation {
     createUser(userNew: UserInput!): User
   }
+
   type User {
-    id: ID
-    firstName: String
-    lastName: String
-    email: String
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    todos: [Todo]
+  }
+
+  type Todo {
+    title: String!
+    by: ID!
   }
 `;
 
@@ -49,21 +71,26 @@ const resolvers = {
   Query: {
     // greet:()=>"Hello Emori"
     users: () => users,
-    user: (parent, { id }, context) => {
+    user: (_, { id }) => {
       console.log(id);
       return users.find((item) => item.id == id);
     },
   },
-    Mutation: {
-      createUser: (_, { userNew })=>{
-        const newUser = {
-            id:crypto.randomUUID(),
-            ...userNew
-        }
-        users.push(newUser)
-        return newUser;
-      }
+  User: {
+    todos: (parent) => {
+      return Todos.filter((todo) => todo.by == parent.id);
     },
+  },
+  Mutation: {
+    createUser: (_, { userNew }) => {
+      const newUser = {
+        id: crypto.randomUUID(),
+        ...userNew,
+      };
+      users.push(newUser);
+      return newUser;
+    },
+  },
 };
 
 // The ApolloServer constructor requires two parameters: your schema
