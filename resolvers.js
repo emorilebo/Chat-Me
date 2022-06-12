@@ -7,10 +7,16 @@ const prisma = new pc.PrismaClient();
 
 //console.log(process.env.JWT_SECRET);
 const resolvers = {
-  Query: {},
+  Query: {
+    users: async (_, args, { userId }) => {
+      const users = await prisma.user.findMany();
+      return users;
+    },
+  },
 
   Mutation: {
     signupUser: async (_, { userNew }) => {
+      console.log(userId);
       const user = await prisma.user.findUnique({
         where: { email: userNew.email },
       });
