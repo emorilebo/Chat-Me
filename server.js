@@ -71,8 +71,8 @@ const resolvers = {
   Query: {
     // greet:()=>"Hello Emori"
     users: () => users,
-    user: (_, { id }) => {
-      console.log(id);
+    user: (_, { id }, {userLoggedIn}) => {
+      if(!userLoggedIn) throw new Error("you are not logged in")
       return users.find((item) => item.id == id);
     },
   },
@@ -98,6 +98,9 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context:{
+    userLoggedIn: true
+  },
   csrfPrevention: true,
 });
 
