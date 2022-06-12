@@ -10,7 +10,11 @@
   "author": "Godfrey Lebo",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^3.15.1",
     "apollo-server": "^3.8.2",
     "graphql": "^16.5.0"
+  },
+  "devDependencies": {
+    "prisma": "^3.15.1"
   }
 }
