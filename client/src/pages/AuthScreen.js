@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Box, Stack, Typography, Button, TextField, Card } from "@mui/material";
 
 const AuthScreen = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [formData, setFormData] = useState({});
+  const authForm = useRef(null)
 
   const handleChange = (e) => {
     setFormData({
@@ -17,6 +18,7 @@ const AuthScreen = () => {
   };
   return (
     <Box
+    ref={authForm}
       component="form"
       onSubmit={handleSubmit}
       display="flex"
@@ -60,6 +62,17 @@ const AuthScreen = () => {
             variant="standard"
             onChange={(e) => handleChange(e)}
           />
+          <Typography
+          textAlign="center"
+            variant="subtitle1"
+            onClick={() => {
+              setShowLogin((preValue) => !preValue);
+              setFormData({});
+              authForm.current.reset()
+            }}
+          >
+            {showLogin ? "Signup?" : "Login?"}
+          </Typography>
           <Button variant="outlined" type="submit">
             {showLogin ? "Login" : "Signup"}
           </Button>
