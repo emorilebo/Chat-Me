@@ -1,13 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import AuthScreen from './pages/AuthScreen';
+import logo from "./logo.svg";
+import "./App.css";
+import AuthScreen from "./pages/AuthScreen";
+import { useState } from "react";
+import HomeScreen from "./pages/HomeScreen";
 
 function App() {
-  return (
-    <div className="">
-     <AuthScreen/>
-    </div>
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  return <div className="">{isLoggedIn ? <HomeScreen /> : <AuthScreen />}</div>;
 }
 
 export default App;
