@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import AuthScreen from './pages/AuthScreen';
 
 function App() {
   return (
     <div className="">
-     <h1>Hello</h1>
+     <AuthScreen/>
     </div>
   );
 }
