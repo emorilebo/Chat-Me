@@ -10,9 +10,24 @@ const AuthScreen = () => {
       [e.target.name]: e.target.value,
     });
   };
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    console.log(formData)
+  }
   return (
-    <Box>
-      <Stack>
+    <Box
+        component="form"
+        onSubmit={handleSubmit}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="80vh"
+    >
+      <Stack
+        direction="column"
+        spacing={2}
+        sx={{width:"400px"}}
+      >
         <Typography variant="h5">Please Signup</Typography>
         <TextField
           name="firstName"
@@ -40,7 +55,7 @@ const AuthScreen = () => {
           variant="standard"
           onChange={(e) => handleChange(e)}
         />
-        <Button variant="outlined">Submit</Button>
+        <Button variant="outlined" type="submit">Submit</Button>
       </Stack>
     </Box>
   );
