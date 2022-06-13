@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 
 const prisma = new pc.PrismaClient();
 
-//console.log(process.env.JWT_SECRET);
 const resolvers = {
   Query: {
     users: async (_, args, { userId }) => {
@@ -27,12 +26,11 @@ const resolvers = {
 
   Mutation: {
     signupUser: async (_, { userNew }) => {
-      console.log(userId);
+      //console.log(userId);
       const user = await prisma.user.findUnique({
         where: { email: userNew.email },
       });
-      if (user)
-        throw new AuthenticationError("User already exist with that email");
+      if (user) throw new AuthenticationError("User already exist with that email");
       const hashedPassword = await bcrypt.hash(userNew.password, 10);
       const newUser = await prisma.user.create({
         data: {
