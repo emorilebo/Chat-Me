@@ -1,4 +1,4 @@
-import { Avatar, Stack } from '@mui/material'
+import { Avatar, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 const UserCard = ({item:{firstName, lastName, id}}) => {
