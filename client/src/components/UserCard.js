@@ -5,7 +5,7 @@ const UserCard = ({item:{firstName, lastName, id}}) => {
   return (
     <Stack>
     <Avatar
-      src={``}
+      src={`https://avatars.dicebear.com/api/initials/${firstName} ${lastName}.svg`}
     />
 
     </Stack>
