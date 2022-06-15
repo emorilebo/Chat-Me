@@ -4,6 +4,7 @@ import React from 'react'
 const UserCard = ({item:{firstName, lastName, id}}) => {
   return (
     <Stack
+    className='usercard'
       direction="row"
       spacing={2}
       sx={{py:1}}
