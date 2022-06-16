@@ -17,10 +17,30 @@ const ChatScreen = () => {
                 </Toolbar>
             </AppBar>
 
-            <Box backgroundColor="#f5f5f5" height="80vh">
-                <MessageCard text='Hello Emori' date='12:20'/>
-                <MessageCard text='Hello Emori' date='12:20'/>
-                <MessageCard text='Hello Emori' date='12:20'/>
+            <Box padding='10px' backgroundColor="#f5f5f5" height="80vh" sx={{overflowY:"auto"}}>
+                <MessageCard text='Hello Emori' date='12:20' direction='start'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
             </Box>
             <TextField
                 placeholder='Enter a message'
