@@ -1,10 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Box, Stack, Typography, Button, TextField, Card } from "@mui/material";
+import {useMutation} from "@apollo/client"
+import { SIGNUP_USER } from "../graphql/mutations";
 
 const AuthScreen = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [formData, setFormData] = useState({});
   const authForm = useRef(null)
+  const [signupUser, {data, loading, error}] = useMutation(SIGNUP_USER)
 
   const handleChange = (e) => {
     setFormData({
@@ -12,9 +15,14 @@ const AuthScreen = () => {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    if(showLogin){
+      //SignInuser
+    }else{
+      signup
+    }
   };
   return (
     <Box

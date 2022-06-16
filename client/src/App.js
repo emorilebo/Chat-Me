@@ -5,7 +5,7 @@ import { useState } from "react";
 import HomeScreen from "./pages/HomeScreen";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return <div className="">{isLoggedIn ? <HomeScreen /> : <AuthScreen />}</div>;
 }
 
