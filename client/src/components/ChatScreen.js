@@ -8,39 +8,39 @@ const ChatScreen = () => {
     const { id, name } = useParams()
     const [messages, setMessages] = useState([])
 
-    const getAllMessages = () =>{
-        fetch('http://localhost:4000/', {
-            method:"POST",
-            headers:{
-                "Content-Type": 'application/json',
-                "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTM2ODU2NX0.B-FVZb4hvcrk6vHa-lPCzMyRlaH2SwChOXmlAlY6_Y4"
-            },
-            body:JSON.stringify({
-                query:`
-                query MessagesByUser($receiverId: Int!) {
-                    messagesByUser(receiverId: $receiverId) {
-                      id
-                      text
-                      receiverId
-                      senderId
-                      createdAt
-                    }
-                  }
-                `,
-                variables:{
-                    "receiverId": 2
-                  }
-            })
-        }).then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            //update state
-        })
-    }
+    // const getAllMessages = () =>{
+    //     fetch('http://localhost:4000/', {
+    //         method:"POST",
+    //         headers:{
+    //             "Content-Type": 'application/json',
+    //             "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1NTM2ODU2NX0.B-FVZb4hvcrk6vHa-lPCzMyRlaH2SwChOXmlAlY6_Y4"
+    //         },
+    //         body:JSON.stringify({
+    //             query:`
+    //             query MessagesByUser($receiverId: Int!) {
+    //                 messagesByUser(receiverId: $receiverId) {
+    //                   id
+    //                   text
+    //                   receiverId
+    //                   senderId
+    //                   createdAt
+    //                 }
+    //               }
+    //             `,
+    //             variables:{
+    //                 "receiverId": 2
+    //               }
+    //         })
+    //     }).then(res=>res.json())
+    //     .then(data=>{
+    //         console.log(data)
+    //         //update state
+    //     })
+    // }
 
-    useEffect(()=>{
-        getAllMessages()
-    }, [])
+    // useEffect(()=>{
+    //     getAllMessages()
+    // }, [])
 
 
     return (
