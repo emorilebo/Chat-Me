@@ -21,24 +21,7 @@ const ChatScreen = () => {
                 <MessageCard text='Hello Emori' date='12:20' direction='start'/>
                 <MessageCard text='Hello Emori' date='12:20' direction='end'/>
                 <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
-                <MessageCard text='Hello Emori' date='12:20' direction='end'/>
+              
                 <MessageCard text='Hello Emori' date='12:20' direction='end'/>
                 <MessageCard text='Hello Emori' date='12:20' direction='end'/>
             </Box>
