@@ -22,6 +22,9 @@ const ChatScreen = () => {
             <TextField
                 placeholder='Enter a message'
                 variant='standard'
+                fullWidth
+                multiline
+                rows={2}
             />
 
         </Box>
