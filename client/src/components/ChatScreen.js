@@ -1,6 +1,7 @@
 import { AppBar, Avatar, Box, TextField, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import MessageCard from './MessageCard'
 
 const ChatScreen = () => {
     const { id, name } = useParams()
@@ -17,7 +18,9 @@ const ChatScreen = () => {
             </AppBar>
 
             <Box backgroundColor="#f5f5f5" height="80vh">
-
+                <MessageCard text='Hello Emori' date='12:20'/>
+                <MessageCard text='Hello Emori' date='12:20'/>
+                <MessageCard text='Hello Emori' date='12:20'/>
             </Box>
             <TextField
                 placeholder='Enter a message'
