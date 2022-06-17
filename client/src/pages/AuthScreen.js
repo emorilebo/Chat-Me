@@ -1,15 +1,16 @@
 import React, { useRef, useState } from "react";
 import { Box, Stack, Typography, Button, TextField, Card, CircularProgress, Alert } from "@mui/material";
 import {useMutation} from "@apollo/client"
-import { SIGNUP_USER } from "../graphql/mutations";
+import { LOGIN_USER, SIGNUP_USER } from "../graphql/mutations";
 
 const AuthScreen = () => {
   const [showLogin, setShowLogin] = useState(true);
   const [formData, setFormData] = useState({});
   const authForm = useRef(null)
   const [signupUser, {data:signupData, loading:l1, error:e1}] = useMutation(SIGNUP_USER)
+  const [loginUser, {data:loginData, loading:l2, error:e2}] = useMutation(LOGIN_USER)
 
-  if(l1){
+  if(l1 || l2){
     return <Box
       display='flex'
       justifyContent='center'
@@ -34,11 +35,15 @@ const AuthScreen = () => {
     e.preventDefault();
     if(showLogin){
       //SignInuser
+      loginUser({
+        variables:{
+          userSignin:formData
+        }
+      })
     }else{
       //signup
       signupUser({
         variables:{
-
           userNew:formData
         }
       })
