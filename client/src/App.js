@@ -5,8 +5,11 @@ import { useState } from "react";
 import HomeScreen from "./pages/HomeScreen";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  return <div className="">{isLoggedIn ? <HomeScreen /> : <AuthScreen />}</div>;
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // return <div className="">{isLoggedIn ? <HomeScreen /> : <AuthScreen />}</div>;
+  return(
+    <AuthScreen/>
+  )
 }
 
 export default App;

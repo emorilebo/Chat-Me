@@ -9,16 +9,16 @@ const AuthScreen = () => {
   const authForm = useRef(null)
   const [signupUser, {data:signupData, loading:l1, error:e1}] = useMutation(SIGNUP_USER)
 
-  if(true){
+  if(l1){
     return <Box
       display='flex'
       justifyContent='center'
       alignItems='center'
       height="100vh"
     >
-      <Box>
+      <Box textAlign='center'>
       <CircularProgress/>
-      <Typography variant="h6">Authenticating</Typography>
+      <Typography variant="h6">Authenticating...</Typography>
       </Box>
     </Box>
   }
