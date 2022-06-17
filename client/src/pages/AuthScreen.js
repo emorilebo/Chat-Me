@@ -8,7 +8,12 @@ const AuthScreen = () => {
   const [formData, setFormData] = useState({});
   const authForm = useRef(null)
   const [signupUser, {data:signupData, loading:l1, error:e1}] = useMutation(SIGNUP_USER)
-  const [loginUser, {data:loginData, loading:l2, error:e2}] = useMutation(LOGIN_USER)
+  const [loginUser, {data:loginData, loading:l2, error:e2}] = useMutation(LOGIN_USER, {
+    onCompleted(data){
+      console.log(data)
+      localStorage.setItem('jwt', data.signupUser.token)
+    }
+  })
 
   if(l1 || l2){
     return <Box
@@ -63,6 +68,7 @@ const AuthScreen = () => {
         <Stack direction="column" spacing={2} sx={{ width: "400px" }}>
           {signupData && <Alert severity="success">{signupData.signupUser.firstName} Signed Up</Alert>}
           {e1 && <Alert severity="error">{e1.message}</Alert>}
+          {e2 && <Alert severity="error">{e2.message}</Alert>}
           <Typography variant="h5">
             Please {showLogin ? "Login" : "Signup"}{" "}
           </Typography>
