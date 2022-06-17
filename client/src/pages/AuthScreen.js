@@ -67,12 +67,14 @@ const AuthScreen = () => {
                 name="firstName"
                 label="First Name"
                 variant="standard"
+                required
                 onChange={(e) => handleChange(e)}
               />
               <TextField
                 name="lastName"
                 label="Last Name"
                 variant="standard"
+                required
                 onChange={(e) => handleChange(e)}
               />
             </>
@@ -83,6 +85,7 @@ const AuthScreen = () => {
             label="Email"
             type="email"
             variant="standard"
+            required
             onChange={(e) => handleChange(e)}
           />
           <TextField
@@ -90,6 +93,7 @@ const AuthScreen = () => {
             type="password"
             label="Password"
             variant="standard"
+            required
             onChange={(e) => handleChange(e)}
           />
           <Typography
