@@ -3,7 +3,7 @@ import { Box, Divider, Stack, Typography } from "@mui/material";
 import UserCard from "./UserCard";
 import LogoutIcon from '@mui/icons-material/Logout';
 
-const Sidebar = () => {
+const Sidebar = ({setLoggedIn}) => {
   const users = [
     { id: 1, firstName: "Godfrey", lastName: "Lebo" },
     { id: 2, firstName: "Francis", lastName: "Ekpan" },
@@ -18,7 +18,10 @@ const Sidebar = () => {
     >
       <Stack direction="row" justifyContent="space-between">
       <Typography variant="h6"> Raeven </Typography>
-      <LogoutIcon/>
+      <LogoutIcon onClick={()=>{
+        localStorage.removeItem('jwt')
+        setLoggedIn(false)
+      }}/>
       </Stack>
       <Divider />
       {users.map((item) => {
