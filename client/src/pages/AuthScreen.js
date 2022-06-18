@@ -1,21 +1,22 @@
 import React, { useRef, useState } from "react";
 import { Box, Stack, Typography, Button, TextField, Card, CircularProgress, Alert } from "@mui/material";
-import {useMutation} from "@apollo/client"
+import { useMutation } from "@apollo/client"
 import { LOGIN_USER, SIGNUP_USER } from "../graphql/mutations";
 
-const AuthScreen = () => {
+const AuthScreen = ({setLoggedIn}) => {
   const [showLogin, setShowLogin] = useState(true);
   const [formData, setFormData] = useState({});
   const authForm = useRef(null)
-  const [signupUser, {data:signupData, loading:l1, error:e1}] = useMutation(SIGNUP_USER)
-  const [loginUser, {data:loginData, loading:l2, error:e2}] = useMutation(LOGIN_USER, {
-    onCompleted(data){
+  const [signupUser, { data: signupData, loading: l1, error: e1 }] = useMutation(SIGNUP_USER)
+  const [loginUser, { data: loginData, loading: l2, error: e2 }] = useMutation(LOGIN_USER, {
+    onCompleted(data) {
       console.log(data)
-      localStorage.setItem('jwt', data.signupUser.token)
+      localStorage.setItem('jwt', data.signinUser.token)
+      setLoggedIn(true)
     }
   })
 
-  if(l1 || l2){
+  if (l1 || l2) {
     return <Box
       display='flex'
       justifyContent='center'
@@ -23,8 +24,8 @@ const AuthScreen = () => {
       height="100vh"
     >
       <Box textAlign='center'>
-      <CircularProgress/>
-      <Typography variant="h6">Authenticating...</Typography>
+        <CircularProgress />
+        <Typography variant="h6">Authenticating...</Typography>
       </Box>
     </Box>
   }
@@ -38,25 +39,17 @@ const AuthScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(showLogin){
+    if (showLogin) {
       //SignInuser
-      loginUser({
-        variables:{
-          userSignin:formData
-        }
-      })
-    }else{
+      loginUser({variables: {userSignin: formData}})
+    } else {
       //signup
-      signupUser({
-        variables:{
-          userNew:formData
-        }
-      })
+      signupUser({variables: {userNew: formData }})
     }
   };
   return (
     <Box
-    ref={authForm}
+      ref={authForm}
       component="form"
       onSubmit={handleSubmit}
       display="flex"
@@ -108,7 +101,7 @@ const AuthScreen = () => {
             onChange={(e) => handleChange(e)}
           />
           <Typography
-          textAlign="center"
+            textAlign="center"
             variant="subtitle1"
             onClick={() => {
               setShowLogin((preValue) => !preValue);

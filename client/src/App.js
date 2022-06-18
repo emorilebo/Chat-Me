@@ -5,10 +5,10 @@ import { useState } from "react";
 import HomeScreen from "./pages/HomeScreen";
 
 function App() {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // return <div className="">{isLoggedIn ? <HomeScreen /> : <AuthScreen />}</div>;
+   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('jwt')?true:false);
+  
   return(
-    <AuthScreen/>
+   <div className="">{loggedIn ? <HomeScreen setLoggedIn={setLoggedIn} /> : <AuthScreen setLoggedIn={setLoggedIn} />}</div>
   )
 }
 
