@@ -1,3 +1,4 @@
+import { useQuery } from '@apollo/client'
 import { AppBar, Avatar, Box, TextField, Toolbar, Typography } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
@@ -7,6 +8,8 @@ import MessageCard from './MessageCard'
 const ChatScreen = () => {
     const { id, name } = useParams()
     const [messages, setMessages] = useState([])
+
+    const {data, loading, error} = useQuery(GET_MSG)
 
     // const getAllMessages = () =>{
     //     fetch('http://localhost:4000/', {
