@@ -78,11 +78,14 @@ const ChatScreen = () => {
         height="80vh"
         sx={{ overflowY: "auto" }}
       >
+        
         {loading ? (
           <Typography variant="h6">Loading chats</Typography>
         ) : (
           data.messagesByUser.map((msg) => {
-            <MessageCard text="Hello Emori" date="12:20" direction="start" />;
+            // <MessageCard text='Hello Emori' date='12:20' direction='start'/>
+            <h1>Hello</h1>
+            // <MessageCard text={msg.text} date={msg.createdAt} direction={msg.receiverId == +id ? "end" : "start"} />;
           })
         )}
         {/* <MessageCard text='Hello Emori' date='12:20' direction='start'/>
